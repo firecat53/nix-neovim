@@ -42,6 +42,10 @@ opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
 
+-- Set soft wrap at 80 columns
+opt.wrap = true
+opt.linebreak = true
+
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Configure Neovim diagnostic messages
