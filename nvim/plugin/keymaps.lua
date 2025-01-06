@@ -16,6 +16,8 @@ keymap.set('n', '[b', vim.cmd.bprevious, { silent = true, desc = 'previous [b]uf
 keymap.set('n', ']b', vim.cmd.bnext, { silent = true, desc = 'next [b]uffer' })
 keymap.set('n', '[B', vim.cmd.bfirst, { silent = true, desc = 'first [B]uffer' })
 keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last [B]uffer' })
+keymap.set('n', '<leader>m', ':b #<CR>', { silent = true, desc = 'last [B]uffer' })
+keymap.set('n', '<backspace>', vim.cmd.bdelete, { silent = true, desc = 'close [b]uffer' })
 
 -- Toggle the quickfix list (only opens if it is populated)
 local function toggle_qf_list()
