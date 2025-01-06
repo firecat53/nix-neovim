@@ -42,7 +42,7 @@ opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
 
--- Set soft wrap at 80 columns
+-- Set soft wrap
 opt.wrap = true
 opt.linebreak = true
 
