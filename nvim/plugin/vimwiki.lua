@@ -10,6 +10,7 @@ vim.g.vimwiki_auto_chdir = 1
 vim.g.vimwiki_folding = ""
 vim.g.vimwiki_global_ext = 0
 
+-- Handle regular saves asynchronously
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.md",
   callback = function()
@@ -37,6 +38,20 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end)
   end,
   group = vim.api.nvim_create_augroup("VimwikiGit", { clear = true })
+})
+
+-- Handle quit operations synchronously
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  pattern = "*.md",
+  callback = function()
+    local wiki_path = vim.fn.expand('~/docs/family/scott/wiki')
+    vim.loop.chdir(wiki_path)
+
+    vim.fn.system({'git', 'add', '.'})
+    local commit_msg = string.format('Update: %s', os.date('%Y-%m-%d %H:%M:%S'))
+    vim.fn.system({'git', 'commit', '-m', commit_msg})
+  end,
+  group = vim.api.nvim_create_augroup("VimwikiQuit", { clear = true })
 })
 
 -- Map <Leader>j and <Leader>k for Vimwiki diary navigation

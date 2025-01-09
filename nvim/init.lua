@@ -14,42 +14,50 @@ if fn.has('termguicolors') then
   opt.termguicolors = true
 end
 
--- See :h <option> to see what the options do
-
 -- Search down into subfolders
 opt.path = vim.o.path .. '**'
 
+-- Search/Nav Options
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true  -- Override ignorecase when search includes uppercase
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
 opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
-opt.hlsearch = true
 
+-- Spelling
 opt.spell = true
 opt.spelllang = 'en'
+opt.spellfile = vim.fn.stdpath('config') .. '/spell/en.utf-8.add'
 
+-- Formatting settings
+opt.wrap = true
 opt.expandtab = true
+opt.linebreak = true
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.foldenable = true
-opt.history = 2000
-opt.nrformats = 'bin,hex' -- 'octal'
-opt.undofile = true
-opt.splitright = true
-opt.splitbelow = true
-opt.cmdheight = 0
-
--- Set soft wrap
-opt.wrap = true
-opt.linebreak = true
-
+vim.opt.colorcolumn = '100'
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
--- Configure Neovim diagnostic messages
+-- formatting for markdown/vimwiki
+vim.api.nvim_create_autocmd("filetype", {
+  pattern = {"markdown", "text"},
+  callback = function()
+    vim.opt_local.textwidth = 80
+    -- combined all format options (auto format - a, auto wrap text - t,
+    -- recognize numbered lists - n, use indent from 2nd line of a paragraph -
+    -- 2, allow formatting of comments with `gq` - q)
+    vim.opt_local.formatoptions:append("ant2q")
+  end,
+  group = vim.api.nvim_create_augroup("textformatting", { clear = true })
+})
 
+-- Configure Neovim diagnostic messages
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end
@@ -96,9 +104,14 @@ vim.diagnostic.config {
   },
 }
 
+-- misc settings
+opt.history = 2000
+opt.nrformats = 'bin,hex' -- 'octal'
+opt.undofile = true
+opt.splitright = true
+opt.splitbelow = true
+opt.cmdheight = 0
 g.editorconfig = true
-
-vim.opt.colorcolumn = '100'
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
