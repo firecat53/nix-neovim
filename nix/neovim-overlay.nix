@@ -88,8 +88,10 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    basedpyright
     lua-language-server
     nil # nix LSP
+    ruff
   ];
 in {
   # This is the neovim derivation
