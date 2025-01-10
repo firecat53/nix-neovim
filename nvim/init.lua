@@ -9,6 +9,8 @@ g.maplocalleader = ' '
 
 opt.compatible = false
 
+opt.mouse = ''
+
 -- Enable true colour support
 if fn.has('termguicolors') then
   opt.termguicolors = true
