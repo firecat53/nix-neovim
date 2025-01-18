@@ -124,3 +124,6 @@ cmd.colorscheme 'catppuccin-mocha'
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+
+-- Insert current date typing `dts` in insert mode
+vim.keymap.set('i', 'dts', function() return os.date("%Y-%m-%d") end, { expr = true })
