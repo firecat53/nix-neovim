@@ -82,14 +82,19 @@ with final.pkgs.lib; let
     # bleeding-edge plugins from flake inputs
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     # ^ bleeding-edge plugins from flake inputs
+    outline-nvim
+    tabular # Needed for table formatting in vim-markdown
     which-key-nvim
     vimwiki
+    vim-markdown
+    markdown-preview-nvim
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
     basedpyright
     lua-language-server
+    marksman
     nil # nix LSP
     ruff
   ];

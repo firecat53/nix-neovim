@@ -42,7 +42,7 @@ opt.linebreak = true
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
-opt.foldenable = true
+opt.foldenable = false  -- Disable folding when file is initially opened 
 vim.opt.colorcolumn = '100'
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
@@ -51,13 +51,17 @@ vim.api.nvim_create_autocmd("filetype", {
   pattern = {"markdown", "text"},
   callback = function()
     vim.opt_local.textwidth = 80
-    -- combined all format options (auto format - a, auto wrap text - t,
-    -- recognize numbered lists - n, use indent from 2nd line of a paragraph -
-    -- 2, allow formatting of comments with `gq` - q)
-    vim.opt_local.formatoptions:append("ant2q")
+    -- auto wrap text - t
+    -- format comments - c
+    -- recognize numbered lists - n
+    -- allow formatting of comments with `gq` - q
+    vim.opt_local.formatoptions:append("cntqr")
   end,
   group = vim.api.nvim_create_augroup("textformatting", { clear = true })
 })
+
+-- Vim-Markdown configuration
+g.vim_markdown_no_extensions_in_markdown = 1
 
 -- Configure Neovim diagnostic messages
 local function prefix_diagnostic(prefix, diagnostic)
