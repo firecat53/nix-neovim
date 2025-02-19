@@ -54,6 +54,15 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
   group = vim.api.nvim_create_augroup("VimwikiQuit", { clear = true })
 })
 
+-- Set vimwiki files to markdown syntax
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "vimwiki",
+  callback = function()
+    vim.bo.filetype = "markdown"
+    vim.opt_local.syntax = "markdown"
+  end,
+})
+
 -- Map <Leader>j and <Leader>k for Vimwiki diary navigation
 vim.api.nvim_set_keymap('n', '<Leader>j', '<Plug>VimwikiDiaryNextDay', {})
 vim.api.nvim_set_keymap('n', '<Leader>k', '<Plug>VimwikiDiaryPrevDay', {})
