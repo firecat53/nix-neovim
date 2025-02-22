@@ -4,9 +4,10 @@ if vim.fn.executable('nil') ~= 1 then
 end
 
 local root_files = {
-  'flake.nix',
-  'default.nix',
-  'shell.nix',
+  '.nix',
+  --'flake.nix',
+  --'default.nix',
+  --'shell.nix',
   '.git',
 }
 

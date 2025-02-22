@@ -190,20 +190,8 @@ end
 
 keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle [S]pell' })
 
-keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
-keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
-keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move DOWN [f]ull-page and center' })
-keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
+-- Insert current date typing `dts` in insert mode
+keymap.set('i', 'dts', function() return os.date("%Y-%m-%d") end, { expr = true })
 
---- Disabled keymaps [enable at your own risk]
-
--- Automatic management of search highlight
--- XXX: This is not so nice if you use j/k for navigation
--- (you should be using <C-d>/<C-u> and relative line numbers instead ;)
---
--- local auto_hlsearch_namespace = vim.api.nvim_create_namespace('auto_hlsearch')
--- vim.on_key(function(char)
---   if vim.fn.mode() == 'n' then
---     vim.opt.hlsearch = vim.tbl_contains({ '<CR>', 'n', 'N', '*', '#', '?', '/' }, vim.fn.keytrans(char))
---   end
--- end, auto_hlsearch_namespace)
+-- Turn off search highlighting
+keymap.set('n', '<leader><space>', vim.cmd.nohlsearch, { silent = true, desc = 'nohlsearch' })

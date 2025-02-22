@@ -135,6 +135,22 @@
         "type": "github"
       }
     },
+    "markdown-table-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738470226,
+        "narHash": "sha256-JGc5L+7/eSBww1HaMl0AVcIwEJF/RFqoVRpR3DnP6+E=",
+        "owner": "kicamon",
+        "repo": "markdown-table-mode.nvim",
+        "rev": "fe207ea7cef615ccaf2c0f1257c58ffa0a50a9f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kicamon",
+        "repo": "markdown-table-mode.nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718714799,
@@ -181,11 +197,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1733212471,
-        "narHash": "sha256-M1+uCoV5igihRfcUKrr1riygbe73/dzNnzPsmaLCmpo=",
+        "lastModified": 1739866667,
+        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "55d15ad12a74eb7d4646254e13638ad0c4128776",
+        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
         "type": "github"
       },
       "original": {
@@ -199,6 +215,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
+        "markdown-table-mode": "markdown-table-mode",
         "nixpkgs": "nixpkgs_2"
       }
     },
