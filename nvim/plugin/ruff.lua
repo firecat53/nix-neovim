@@ -3,7 +3,7 @@ require('lspconfig').ruff.setup({
     ruff = {
       -- Add any Ruff-specific settings here, for example:
       lint = {
-        args = {"--select", "E,F,W,I"},
+        args = { "--select", "E,F,W,I" },
       }
     }
   },

@@ -61,7 +61,8 @@ with final.pkgs.lib; let
      outline-nvim
      which-key-nvim
      # libraries that other plugins depend on
-     nvim-web-devicons
+     nui-nvim  # for neo-tree-nvim
+     nvim-web-devicons  # for neo-tree-nvim
      plenary-nvim
      sqlite-lua
      # bleeding-edge plugins from flake inputs

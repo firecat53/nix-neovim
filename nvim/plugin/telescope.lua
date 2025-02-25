@@ -59,7 +59,7 @@ local function live_grep_current_file_type()
   grep_current_file_type(builtin.live_grep)
 end
 
---- Like live_grep, but fuzzy (and slower)
+
 local function fuzzy_grep(opts)
   opts = vim.tbl_extend('error', opts or {}, { search = '', prompt_title = 'Fuzzy grep' })
   builtin.grep_string(opts)

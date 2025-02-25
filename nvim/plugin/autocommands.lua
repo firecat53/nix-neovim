@@ -28,17 +28,17 @@ api.nvim_create_autocmd('TermOpen', {
 local keymap = vim.keymap
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        -- Navigate between markdown links with Tab
-        vim.keymap.set('n', '<Tab>', '/\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
-        vim.keymap.set('n', '<S-Tab>', '?\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
+  pattern = "markdown",
+  callback = function()
+    -- Navigate between markdown links with Tab
+    vim.keymap.set('n', '<Tab>', '/\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
+    vim.keymap.set('n', '<S-Tab>', '?\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
 
-        -- Proper list indentation
-        vim.opt_local.formatlistpat = [[^\s*\d\+[\]:.)}\t ]\s*\|^\s*[-*+]\s\+]]
-        vim.opt_local.autoindent = true
-        vim.opt_local.formatoptions:append('ncro')
-    end
+    -- Proper list indentation
+    vim.opt_local.formatlistpat = [[^\s*\d\+[\]:.)}\t ]\s*\|^\s*[-*+]\s\+]]
+    vim.opt_local.autoindent = true
+    vim.opt_local.formatoptions:append('ncro')
+  end
 })
 
 -- LSP options and keymaps

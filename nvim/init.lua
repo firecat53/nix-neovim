@@ -22,7 +22,7 @@ opt.path = vim.o.path .. '**'
 -- Search/Nav Options
 opt.hlsearch = true
 opt.ignorecase = true
-opt.smartcase = true  -- Override ignorecase when search includes uppercase
+opt.smartcase = true -- Override ignorecase when search includes uppercase
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
@@ -43,7 +43,7 @@ opt.linebreak = true
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
-opt.foldenable = false  -- Disable folding when file is initially opened 
+opt.foldenable = false -- Disable folding when file is initially opened
 opt.colorcolumn = '100'
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 

@@ -5,7 +5,7 @@ require("lspconfig").basedpyright.setup {
       analysis = {
         diagnosticMode = "openFilesOnly",
         typeCheckingMode = "standard", -- change to 'recommended' for type checking
-        }
+      }
     }
   }
 }

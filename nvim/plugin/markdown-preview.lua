@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<C-p>', vim.cmd.MarkdownPreviewToggle, { desc = 'MarkdownPreviewToggle' })
+vim.keymap.set('n', '<leader>fp', vim.cmd.MarkdownPreviewToggle, { desc = 'MarkdownPreviewToggle' })
