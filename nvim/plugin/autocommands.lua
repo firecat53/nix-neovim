@@ -27,14 +27,21 @@ api.nvim_create_autocmd('TermOpen', {
 -- LSP
 local keymap = vim.keymap
 
---- Don't create a comment string when hitting <Enter> on a comment line
-vim.api.nvim_create_autocmd('BufEnter', {
-  group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
-  callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
-  end,
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        -- Navigate between markdown links with Tab
+        vim.keymap.set('n', '<Tab>', '/\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
+        vim.keymap.set('n', '<S-Tab>', '?\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
+
+        -- Proper list indentation
+        vim.opt_local.formatlistpat = [[^\s*\d\+[\]:.)}\t ]\s*\|^\s*[-*+]\s\+]]
+        vim.opt_local.autoindent = true
+        vim.opt_local.formatoptions:append('ncro')
+    end
 })
 
+-- LSP options and keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -91,7 +98,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Autosave when leaving buffers
-vim.api.nvim_create_autocmd("BufLeave", {
-    pattern = "*",
-    command = "silent! w"
+vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload" }, {
+  pattern = "*",
+  command = "silent! w!"
 })

@@ -69,6 +69,7 @@ with final.pkgs.lib; let
      # ^ bleeding-edge plugins from flake inputs
      # Markdown/wiki handling
      (mkNvimPlugin inputs.markdown-table-mode "markdown-table-mode")
+     bullets-vim
      markdown-preview-nvim
      obsidian-nvim
   ];

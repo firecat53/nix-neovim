@@ -1,9 +1,11 @@
 vim.opt.conceallevel = 2
+local wiki_path = vim.fn.expand("~/docs/family/scott/wiki")
+
 require("obsidian").setup({
   workspaces = {
     {
       name = "wiki",
-      path = "~/docs/family/scott/wiki/",
+      path = wiki_path,
     },
     {
       name = "no-vault",
@@ -60,7 +62,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
             local new_date = date + (offset * 86400)
             local new_file = os.date('%Y-%m-%d', new_date) .. '.md'
             local new_path = vim.fn.expand('%:p:h') .. '/' .. new_file
-            vim.cmd('bd')
+            vim.cmd('bdelete!')
             vim.cmd('edit ' .. new_path)
             -- If it's a new file, add any template content you want here
             if vim.fn.filereadable(new_path) == 0 then
@@ -73,21 +75,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
 })
 
--- Tab to navigate between links
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        vim.keymap.set('n', '<Tab>', '/\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
-        vim.keymap.set('n', '<S-Tab>', '?\\(\\[\\[\\|\\[.\\{-}\\](\\)<CR>:nohlsearch<CR>', { buffer = true })
-    end
-})
-
--- Save changes to Wiki when exiting neovim.
+-- Git commit changes to Wiki when exiting neovim.
 
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
-        local wiki_path = vim.fn.expand("~/docs/family/scott/wiki")
 
         -- Change to wiki directory temporarily
         local current_dir = vim.fn.getcwd()
