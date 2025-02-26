@@ -4,10 +4,9 @@ if vim.fn.executable('nil') ~= 1 then
 end
 
 local root_files = {
-  '.nix',
-  --'flake.nix',
-  --'default.nix',
-  --'shell.nix',
+  'flake.nix',
+  'default.nix',
+  'shell.nix',
   '.git',
 }
 
@@ -16,4 +15,19 @@ vim.lsp.start {
   cmd = { 'nil' },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
   capabilities = require('user.lsp').make_client_capabilities(),
+  settings = {
+    ["nil"] = {
+      formatting = {
+        command = { "nixfmt" },
+      },
+      diagnostics = {
+        enabled = true
+      },
+      nix = {
+        flake = {
+          autoEvalInputs = true
+        },
+      },
+    },
+  },
 }

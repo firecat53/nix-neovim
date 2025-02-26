@@ -46,6 +46,7 @@ opt.shiftwidth = 2
 opt.foldenable = false -- Disable folding when file is initially opened
 opt.colorcolumn = '100'
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.smartindent = true
 
 -- Configure Neovim diagnostic messages
 local function prefix_diagnostic(prefix, diagnostic)
