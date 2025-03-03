@@ -25,7 +25,7 @@ vim.lsp.start {
       },
       nix = {
         flake = {
-          autoEvalInputs = true
+          autoEvalInputs = false
         },
       },
     },
