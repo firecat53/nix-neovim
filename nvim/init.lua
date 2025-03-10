@@ -36,7 +36,7 @@ opt.spelllang = 'en'
 opt.spellfile = vim.fn.stdpath('config') .. '/spell/en.utf-8.add'
 
 -- Formatting settings
-opt.textwidth = 100
+opt.textwidth = 80
 opt.wrap = true
 opt.expandtab = true
 opt.linebreak = true
@@ -44,7 +44,7 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.foldenable = false -- Disable folding when file is initially opened
-opt.colorcolumn = '100'
+opt.colorcolumn = '80'
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.smartindent = true
 
