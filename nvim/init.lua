@@ -1,20 +1,15 @@
+vim.loader.enable()
+
 local cmd = vim.cmd
-local fn = vim.fn
 local opt = vim.o
-local g = vim.g
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
-g.mapleader = ','
-g.maplocalleader = ' '
+vim.g.mapleader = ','
+vim.g.maplocalleader = ' '
 
 opt.compatible = false
 
 opt.mouse = ''
-
--- Enable true colour support
-if fn.has('termguicolors') then
-  opt.termguicolors = true
-end
 
 -- Search down into subfolders
 opt.path = vim.o.path .. '**'
@@ -102,7 +97,6 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
-g.editorconfig = true
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
