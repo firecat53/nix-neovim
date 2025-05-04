@@ -26,7 +26,7 @@ opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
 
 -- Spelling
-opt.spell = true
+opt.spell = false
 opt.spelllang = 'en'
 opt.spellfile = vim.fn.stdpath('config') .. '/spell/en.utf-8.add'
 
