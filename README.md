@@ -204,7 +204,7 @@ There are two ways to add plugins:
 
 - The traditional way, using `nixpkgs` as the source.
 - By adding plugins as flake inputs (if you like living on the bleeding-edge).
-  Plugins added as flake inputs must be built in `nix/plugin-overlay.nix`.
+  Plugins added as flake inputs must be built manually.
 
 Directory structure:
 
