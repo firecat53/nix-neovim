@@ -138,11 +138,11 @@
     "markdown-table-mode": {
       "flake": false,
       "locked": {
-        "lastModified": 1738470226,
-        "narHash": "sha256-JGc5L+7/eSBww1HaMl0AVcIwEJF/RFqoVRpR3DnP6+E=",
+        "lastModified": 1747741448,
+        "narHash": "sha256-bTwrJ9QdPahdC7o+Yoxgl+FMZFvh7loZd77iYQoXORI=",
         "owner": "kicamon",
         "repo": "markdown-table-mode.nvim",
-        "rev": "fe207ea7cef615ccaf2c0f1257c58ffa0a50a9f5",
+        "rev": "ad3c088af07c8735099ae019da0548718ab32e09",
         "type": "github"
       },
       "original": {
@@ -197,11 +197,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1739866667,
-        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
+        "lastModified": 1749794982,
+        "narHash": "sha256-Kh9K4taXbVuaLC0IL+9HcfvxsSUx8dPB5s5weJcc9pc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
+        "rev": "ee930f9755f58096ac6e8ca94a1887e0534e2d81",
         "type": "github"
       },
       "original": {
