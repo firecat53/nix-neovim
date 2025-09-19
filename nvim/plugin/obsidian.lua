@@ -2,6 +2,7 @@ vim.opt.conceallevel = 2
 local wiki_path = vim.fn.expand("~/docs/family/scott/wiki")
 
 require("obsidian").setup({
+  legacy_commands = false,
   workspaces = {
     {
       name = "wiki",
@@ -39,13 +40,13 @@ require("obsidian").setup({
 
 -- Keymaps
 vim.keymap.set('n', '<leader>ww', function()
-  vim.cmd('ObsidianWorkspace wiki')
-  vim.cmd('ObsidianQuickSwitch Home')
+  vim.cmd('Obsidian workspace wiki')
+  vim.cmd('Obsidian quick_switch Home')
 end)
 
 vim.keymap.set('n', '<leader>w<leader>w', function()
-  vim.cmd('ObsidianWorkspace wiki')
-  vim.cmd('ObsidianToday')
+  vim.cmd('Obsidian workspace wiki')
+  vim.cmd('Obsidian today')
 end)
 
 -- Replicate Vimwiki <leader>j <leader>k to move between diary days
