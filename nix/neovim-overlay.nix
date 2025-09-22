@@ -64,6 +64,7 @@ let
     neo-tree-nvim
     nvim-unception # Prevent nested neovim sessions | nvim-unception
     outline-nvim
+    vim-gnupg # Transparent editing of gpg encrypted files
     which-key-nvim
     # libraries that other plugins depend on
     nui-nvim # for neo-tree-nvim
