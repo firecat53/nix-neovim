@@ -9,6 +9,18 @@ require("neo-tree").setup({
       ["<bs>"] = "close_window",
       ["l"] = { "open", nowait = true },
       ["h"] = "navigate_up",
+      ["\\"] = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        -- If it's a file, use its parent directory
+        if node.type ~= "directory" then
+          path = vim.fn.fnamemodify(path, ":h")
+        end
+        require("telescope.builtin").live_grep({
+          cwd = path,
+          prompt_title = "Live Grep in " .. vim.fn.fnamemodify(path, ":~:."),
+        })
+      end,
     }
   }
 })
