@@ -13,13 +13,17 @@ require("obsidian").setup({
       path = function()
         return assert(vim.fn.getcwd())
       end,
+      ---@diagnostic disable-next-line: missing-fields
       overrides = {
+        ---@diagnostic disable-next-line: assign-type-mismatch
         notes_subdir = vim.NIL, -- have to use 'vim.NIL' instead of 'nil'
         new_notes_location = "current_dir",
         daily_notes = {
+          ---@diagnostic disable-next-line: assign-type-mismatch
           folder = vim.NIL,
         },
         templates = {
+          ---@diagnostic disable-next-line: assign-type-mismatch
           folder = vim.NIL,
         },
         disable_frontmatter = true,

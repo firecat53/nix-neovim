@@ -97,6 +97,7 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
+opt.autoread = true -- reload on external changes to file
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
@@ -106,4 +107,4 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 cmd.colorscheme 'catppuccin-mocha'
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+vim.g.sqlite_clib_path = vim.env.LIBSQLITE

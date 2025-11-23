@@ -42,10 +42,7 @@ local function grep_current_file_type(picker)
   end
   local conf = require('telescope.config').values
   picker {
-    vimgrep_arguments = vim.tbl_flatten {
-      conf.vimgrep_arguments,
-      additional_vimgrep_arguments,
-    },
+    vimgrep_arguments = vim.iter({ conf.vimgrep_arguments, additional_vimgrep_arguments }):flatten():totable(),
   }
 end
 

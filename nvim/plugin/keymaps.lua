@@ -142,39 +142,31 @@ keymap.set('n', '<space>e', function()
     return
   end
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
-end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
-keymap.set('n', '[d', diagnostic.goto_prev, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', diagnostic.goto_next, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+end, { silent = true, desc = 'diagnostics floating window' })
+keymap.set('n', '[d', function()
+  diagnostic.jump({ count = -1 })
+end, { silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function()
+  diagnostic.jump({ count = 1 })
+end, { silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev {
-    severity = severity.ERROR,
-  }
-end, { noremap = true, silent = true, desc = 'previous [e]rror diagnostic' })
+  diagnostic.jump({ count = -1, severity = severity.ERROR })
+end, { silent = true, desc = 'previous [e]rror diagnostic' })
 keymap.set('n', ']e', function()
-  diagnostic.goto_next {
-    severity = severity.ERROR,
-  }
-end, { noremap = true, silent = true, desc = 'next [e]rror diagnostic' })
+  diagnostic.jump({ count = 1, severity = severity.ERROR })
+end, { silent = true, desc = 'next [e]rror diagnostic' })
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev {
-    severity = severity.WARN,
-  }
-end, { noremap = true, silent = true, desc = 'previous [w]arning diagnostic' })
+  diagnostic.jump({ count = -1, severity = severity.WARN })
+end, { silent = true, desc = 'previous [w]arning diagnostic' })
 keymap.set('n', ']w', function()
-  diagnostic.goto_next {
-    severity = severity.WARN,
-  }
-end, { noremap = true, silent = true, desc = 'next [w]arning diagnostic' })
+  diagnostic.jump({ count = 1, severity = severity.WARN })
+end, { silent = true, desc = 'next [w]arning diagnostic' })
 keymap.set('n', '[h', function()
-  diagnostic.goto_prev {
-    severity = severity.HINT,
-  }
-end, { noremap = true, silent = true, desc = 'previous [h]int diagnostic' })
+  diagnostic.jump({ count = -1, severity = severity.HINT })
+end, { silent = true, desc = 'previous [h]int diagnostic' })
 keymap.set('n', ']h', function()
-  diagnostic.goto_next {
-    severity = severity.HINT,
-  }
-end, { noremap = true, silent = true, desc = 'next [h]int diagnostic' })
+  diagnostic.jump({ count = 1, severity = severity.HINT })
+end, { silent = true, desc = 'next [h]int diagnostic' })
 
 local function buf_toggle_diagnostics()
   local filter = { bufnr = api.nvim_get_current_buf() }
@@ -184,11 +176,10 @@ end
 keymap.set('n', '<space>dt', buf_toggle_diagnostics)
 
 local function toggle_spell_check()
-  ---@diagnostic disable-next-line: param-type-mismatch
-  vim.opt.spell = not (vim.opt.spell:get())
+  vim.o.spell = not (vim.o.spell)
 end
 
-keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle [S]pell' })
+keymap.set('n', '<leader>S', toggle_spell_check, { silent = true, desc = 'toggle [S]pell' })
 
 -- Insert current date typing `dts` in insert mode
 keymap.set('i', 'dts', function() return os.date("%Y-%m-%d") end, { expr = true })
