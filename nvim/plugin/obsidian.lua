@@ -26,7 +26,7 @@ require("obsidian").setup({
           ---@diagnostic disable-next-line: assign-type-mismatch
           folder = vim.NIL,
         },
-        disable_frontmatter = true,
+        frontmatter = { enabled = false },
       },
     },
   },
@@ -35,7 +35,7 @@ require("obsidian").setup({
   },
   new_notes_location = "current_dir",
   preferred_link_style = "wiki",
-  disable_frontmatter = true,
+  frontmatter = { enabled = false },
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
     vim.ui.open(url) -- need Neovim 0.10.0+

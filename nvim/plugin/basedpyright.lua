@@ -1,4 +1,4 @@
-require("lspconfig").basedpyright.setup {
+vim.lsp.config("basedpyright", {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
@@ -8,4 +8,6 @@ require("lspconfig").basedpyright.setup {
       }
     }
   }
-}
+})
+
+vim.lsp.enable("basedpyright")

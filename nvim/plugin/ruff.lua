@@ -1,4 +1,4 @@
-require('lspconfig').ruff.setup({
+vim.lsp.config("ruff", {
   settings = {
     ruff = {
       -- Add any Ruff-specific settings here, for example:
@@ -12,3 +12,5 @@ require('lspconfig').ruff.setup({
     client.server_capabilities.hoverProvider = false
   end
 })
+
+vim.lsp.enable("ruff")

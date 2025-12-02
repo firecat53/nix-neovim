@@ -1,5 +1,9 @@
 vim.loader.enable()
 
+-- Disable legacy lspconfig plugin loading (Neovim 0.11+)
+-- This prevents deprecated auto-generated lspconfig files
+vim.g.lspconfig = 0
+
 local cmd = vim.cmd
 local opt = vim.o
 
