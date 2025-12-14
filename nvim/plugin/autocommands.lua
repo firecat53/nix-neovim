@@ -96,9 +96,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-
--- Autosave when leaving buffers
-vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload" }, {
-  pattern = "*",
-  command = "silent! w!"
-})
