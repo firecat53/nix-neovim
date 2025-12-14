@@ -45,7 +45,7 @@ require("obsidian").setup({
 -- Keymaps
 vim.keymap.set('n', '<leader>ww', function()
   vim.cmd('Obsidian workspace wiki')
-  vim.cmd('Obsidian quick_switch Home')
+  vim.cmd('Obsidian quick_switch')
 end)
 
 vim.keymap.set('n', '<leader>w<leader>w', function()
