@@ -68,7 +68,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
       local new_date = date + (offset * 86400)
       local new_file = os.date('%Y-%m-%d', new_date) .. '.md'
       local new_path = vim.fn.expand('%:p:h') .. '/' .. new_file
-      vim.cmd('bdelete!')
       vim.cmd('edit ' .. new_path)
       -- If it's a new file, add any template content you want here
       if vim.fn.filereadable(new_path) == 0 then
