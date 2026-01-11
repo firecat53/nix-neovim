@@ -18,7 +18,7 @@ vim.lsp.start {
   settings = {
     ["nil"] = {
       formatting = {
-        command = { "nixfmt-tree" },
+        command = { "nixfmt" },
       },
       diagnostics = {
         enabled = true

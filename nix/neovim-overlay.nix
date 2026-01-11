@@ -90,7 +90,7 @@ let
     ruff
     # Tools
     fd
-    nixfmt-tree
+    nixfmt-rfc-style
     ripgrep
   ];
 in
