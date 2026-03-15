@@ -56,19 +56,16 @@ vim.keymap.set({ 'n', 'x', 'o' }, '[P', function()
   require('nvim-treesitter-textobjects.move').goto_previous_end('@parameter.outer', 'textobjects')
 end, { desc = 'previous [P]arameter (end)' })
 
----@diagnostic disable-next-line: missing-fields
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-    disable = function(_, buf)
-      local max_filesize = 100 * 1024 -- 100 KiB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
-    end,
-  },
-}
+-- Disable treesitter highlighting for large files
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local max_filesize = 100 * 1024 -- 100 KiB
+    local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+    if ok and stats and stats.size > max_filesize then
+      vim.treesitter.stop(args.buf)
+    end
+  end,
+})
 
 require('treesitter-context').setup {
   max_lines = 3,

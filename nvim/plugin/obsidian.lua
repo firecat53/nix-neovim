@@ -36,10 +36,6 @@ require("obsidian").setup({
   new_notes_location = "current_dir",
   preferred_link_style = "wiki",
   frontmatter = { enabled = false },
-  follow_url_func = function(url)
-    -- Open the URL in the default web browser.
-    vim.ui.open(url) -- need Neovim 0.10.0+
-  end
 })
 
 -- Keymaps
